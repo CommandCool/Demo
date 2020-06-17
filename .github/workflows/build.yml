@@ -11,19 +11,23 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
       - name: Install Deno
         uses: denolib/setup-deno@master
         with:
           deno-version: v1.x
+      - name: Setup Git
+        run: |
+          git config --global user.email "kandisheng@163.com"
+          git config --global user.name "Candison"
+      - name: Checkout
+        uses: actions/checkout@master
       - name: Build
         run: deno bundle app.ts index.js
-      - name: Add Files
-        run: git add -A
       - name: Commit
-        run: git commit -m "Build"
-      - name: Push changes
+        run: |
+          git add -A
+          git commit -m "Build"
+      - name: Push
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
