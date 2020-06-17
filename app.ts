@@ -1,2 +1,2 @@
 console.log('Command Cool');
-console.log('Hello World!!!');
+console.log('Hello World');

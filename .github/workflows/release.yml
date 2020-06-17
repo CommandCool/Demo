@@ -4,8 +4,8 @@ on:
     tags:
       - '*'
 jobs:
-  build:
-    name: Build
+  release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Install Deno
@@ -23,11 +23,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
+          release_name: ${{ github.ref }}
+          # body: |
+          #   Changes in this Release
+          #   - First Change
+          #   - Second Change
           draft: false
           prerelease: false
       - name: Upload Release Asset
