@@ -107,6 +107,6 @@ let System, __instantiateAsync, __instantiate;
 
 "use strict";
 console.log("Command Cool");
-console.log("Hello World!!");
+console.log("Hello World");
 
 __instantiate("app");
