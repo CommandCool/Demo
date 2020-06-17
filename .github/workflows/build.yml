@@ -1,4 +1,4 @@
-name: Test
+name: Build
 on:
   push:
     branches:    
@@ -20,7 +20,7 @@ jobs:
           git config --global user.email "kandisheng@163.com"
           git config --global user.name "Candison"
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
       - name: Build
         run: deno bundle app.ts index.js
       - name: Commit
@@ -29,17 +29,17 @@ jobs:
           git commit -m "Build"
       - name: Push
         run: git push origin master
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
+    #   - name: Create Release
+    #     id: create_release
+    #     uses: actions/create-release@v1
+    #     env:
+    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     with:
+    #       tag_name: ${{ github.ref }}
+    #       release_name: Release ${{ github.ref }}
+    #       body: |
+    #         Changes in this Release
+    #         - First Change
+    #         - Second Change
+    #       draft: false
+    #       prerelease: false
