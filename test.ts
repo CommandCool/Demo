@@ -1,1 +1,1 @@
-Command Cool
+console.log('Command Cool');
