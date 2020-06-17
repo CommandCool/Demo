@@ -24,12 +24,12 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
           # body: |
           #   Changes in this Release
           #   - First Change
           #   - Second Change
-          draft: false
-          prerelease: false
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:

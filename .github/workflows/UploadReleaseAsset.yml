@@ -1,0 +1,23 @@
+name: Upload Release Asset
+on:
+  release:
+    types: [published]
+jobs:
+  upload:
+    name: Upload Release Asset
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Deno
+        uses: denolib/setup-deno@master
+        with:
+          deno-version: v1.x
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run: deno bundle src/test.ts test.js
+      - name: Upload Release Asset
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: test.js application/x-javascript
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
