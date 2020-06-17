@@ -3,17 +3,26 @@ on:
   push:
     branches:    
       - master
+  pull_request:
+    branches:    
+      - master
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
       - name: Install Deno
         uses: denolib/setup-deno@master
         with:
           deno-version: v1.x
-      - run: deno bundle app.ts index.js
+      - name: Build
+        run: deno bundle app.ts index.js
+      - name: Add Files
+        run: git add -A
+      - name: Commit
+        run: git commit -m "Build"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
