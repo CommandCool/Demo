@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build
-        run: deno bundle app.ts index.js
+        run: deno bundle src/test.ts docs/index.html
       - name: Commit
         run: |
           git add -A
