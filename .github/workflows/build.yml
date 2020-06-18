@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Deno
-        uses: denolib/setup-deno@v1
+        uses: denolib/setup-deno@v1.3.0
         with:
           deno-version: v1.x
       - name: Setup Git
@@ -20,7 +20,7 @@ jobs:
           git config --global user.email "kandisheng@163.com"
           git config --global user.name "Candison"
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.1
       - name: Build
         run: deno bundle src/demo.ts docs/index.html
       - name: Commit
