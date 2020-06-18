@@ -15,7 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.1
       - name: Build
-        run: deno bundle src/demo.ts demo.js
+        run: |
+          deno bundle src/demo.ts docs/temp.js
+          echo "#!/usr/bin/env deno run" > docs/index.html
+          cat docs/temp.js >> docs/index.html
+          rm -rf docs/temp.js
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1.1.1
@@ -36,6 +40,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./demo.js
+          asset_path: ./docs/index.html
           asset_name: demo.js
           asset_content_type: application/x-javascript
