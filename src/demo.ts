@@ -1,1 +1,3 @@
-console.log('Command Cool Demo');
+import { green } from "./deps.ts";
+
+console.log(green("Command Cool Demo"));

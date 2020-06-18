@@ -2,13 +2,13 @@ name: Release
 on:
   push:
     tags:
-      - '*'
+      - "*"
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Install Deno
+      - name: Setup Deno
         uses: denolib/setup-deno@v1.3.0
         with:
           deno-version: v1.x
