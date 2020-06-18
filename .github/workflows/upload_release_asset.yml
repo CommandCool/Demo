@@ -8,16 +8,16 @@
 #     runs-on: ubuntu-latest
 #     steps:
 #       - name: Install Deno
-#         uses: denolib/setup-deno@master
+#         uses: denolib/setup-deno@v1
 #         with:
 #           deno-version: v1.x
 #       - name: Checkout
 #         uses: actions/checkout@v2
 #       - name: Build
-#         run: deno bundle src/test.ts test.js
+#         run: deno bundle src/demo.ts demo.js
 #       - name: Upload Release Asset
-#         uses: JasonEtco/upload-to-release@master
+#         uses: JasonEtco/upload-to-release@v1
 #         with:
-#           args: test.js application/x-javascript
+#           args: demo.js application/x-javascript
 #         env:
 #           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

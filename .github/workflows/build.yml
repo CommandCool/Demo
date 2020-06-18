@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Deno
-        uses: denolib/setup-deno@master
+        uses: denolib/setup-deno@v1
         with:
           deno-version: v1.x
       - name: Setup Git
@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build
-        run: deno bundle src/test.ts docs/index.html
+        run: deno bundle src/demo.ts docs/index.html
       - name: Commit
         run: |
           git add -A

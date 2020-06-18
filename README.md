@@ -1,2 +1,5 @@
-# test
-test
+# Demo
+
+···
+$ deno run http://demo.command.cool
+···
