@@ -39,10 +39,10 @@ jobs:
       #     cat docs/temp.min.js >> docs/index.html
       #     rm -rf docs/temp.js
       #     rm -rf docs/temp.min.js
-      - name: Commit
-        run: |
-          git add -A
-          git commit -m "Build"
+      # - name: Commit
+      #   run: |
+      #     git add -A
+      #     git commit -m "Build"
       # - name: Push
       #   run: |
       #     git push origin master
