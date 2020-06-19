@@ -43,15 +43,15 @@ jobs:
         run: |
           git add -A
           git commit -m "Build"
-      - name: Push
-        run: |
-          git push origin master
       # - name: Push
-      #   uses: github-actions-x/commit@v2.6
-      #   with:
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     push-branch: "master"
-      #     commit-message: "Build"
-      #     force-add: "true"
-      #     name: Candison
-      #     email: kandisheng@163.com
+      #   run: |
+      #     git push origin master
+      - name: Push
+        uses: github-actions-x/commit@v2.6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: "master"
+          commit-message: "Build"
+          # force-add: "true"
+          name: Candison
+          email: kandisheng@163.com
