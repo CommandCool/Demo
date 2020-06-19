@@ -19,10 +19,10 @@ jobs:
       #   uses: actions/setup-node@v1.4.2
       #   with:
       #     node-version: "12"
-      - name: Set up Git
-        run: |
-          git config --global user.email "kandisheng@163.com"
-          git config --global user.name "Candison"
+      # - name: Set up Git
+      #   run: |
+      #     git config --global user.email "kandisheng@163.com"
+      #     git config --global user.name "Candison"
       - name: Checkout
         uses: actions/checkout@v2.3.1
       - name: Build
