@@ -15,14 +15,18 @@ jobs:
         uses: denolib/setup-deno@v1.3.0
         with:
           deno-version: v1.x
+      - name: Setup Node
+        uses: bahmutov/npm-install@v1.1.0
       - name: Checkout
         uses: actions/checkout@v2.3.1
       - name: Build
         run: |
           deno bundle src/demo.ts docs/temp.js
+          npx uglifyjs docs/temp.js -o docs/temp.min.js
           echo "#!/usr/bin/env deno run" > docs/index.html
-          cat docs/temp.js >> docs/index.html
+          cat docs/temp.min.js >> docs/index.html
           rm -rf docs/temp.js
+          rm -rf docs/temp.min.js
       - name: Setup Git
         run: |
           git config --global user.email "kandisheng@163.com"
