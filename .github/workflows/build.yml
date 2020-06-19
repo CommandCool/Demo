@@ -24,7 +24,7 @@ jobs:
       - name: Build
         run: |
           deno bundle src/demo.ts docs/temp.js
-          npx uglifyjs docs/temp.js -o docs/temp.min.js
+          npx uglify-js docs/temp.js -o docs/temp.min.js
           echo "#!/usr/bin/env deno run" > docs/index.html
           cat docs/temp.min.js >> docs/index.html
           rm -rf docs/temp.js
