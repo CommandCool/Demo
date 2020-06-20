@@ -7,5 +7,5 @@ $ deno run http://demo.command.cool
 or
 
 ```bash
-$ deno run http://demo.command.cool/0.0.10
+$ deno run http://demo.command.cool/0.0.11
 ```

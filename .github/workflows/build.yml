@@ -51,7 +51,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: "master"
-          commit-message: "Build"
+          commit-message: "Build by GitHub Actions"
           # force-add: "true"
           name: Candison
           email: kandisheng@163.com
